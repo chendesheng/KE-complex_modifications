@@ -1,0 +1,96 @@
+{
+  "title": "Personal rules (@chendesheng)",
+  "rules": [
+    {
+      "description": "Microsoft Remote Desktop",
+      "manipulators": [
+        {
+          "from": <%= from("right_shift", [], ["any"]) %>,
+          "to": <%= to([["right_shift"]]) %>,
+          "to_if_alone": <%= to([["left_shift", ["left_option"]]]) %>,
+          "type": "basic"
+        },
+        {
+          "type": "basic",
+          "from": <%= from("c", ["left_command"], []) %>,
+          "to": <%= to([["c", ["left_control"]]]) %>,
+          "conditions": [
+              <%= frontmost_application_if(["remote_desktop"]) %>
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("v", ["left_command"], []) %>,
+          "to": <%= to([["v", ["left_control"]]]) %>,
+          "conditions": [
+              <%= frontmost_application_if(["remote_desktop"]) %>
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("s", ["left_command"], []) %>,
+          "to": <%= to([["s", ["left_control"]]]) %>,
+          "conditions": [
+              <%= frontmost_application_if(["remote_desktop"]) %>
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("a", ["left_command"], []) %>,
+          "to": <%= to([["a", ["left_control"]]]) %>,
+          "conditions": [
+              <%= frontmost_application_if(["remote_desktop"]) %>
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("z", ["left_command"], []) %>,
+          "to": <%= to([["z", ["left_control"]]]) %>,
+          "conditions": [
+              <%= frontmost_application_if(["remote_desktop"]) %>
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("f", ["left_command"], []) %>,
+          "to": <%= to([["f", ["left_control"]]]) %>,
+          "conditions": [
+              <%= frontmost_application_if(["remote_desktop"]) %>
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("x", ["left_command"], []) %>,
+          "to": <%= to([["x", ["left_control"]]]) %>,
+          "conditions": [
+              <%= frontmost_application_if(["remote_desktop"]) %>
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("n", ["left_command"], []) %>,
+          "to": <%= to([["n", ["left_control"]]]) %>,
+          "conditions": [
+              <%= frontmost_application_if(["remote_desktop"]) %>
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("w", ["left_command"], []) %>,
+          "to": <%= to([["w", ["left_control"]]]) %>,
+          "conditions": [
+              <%= frontmost_application_if(["remote_desktop"]) %>
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("tab", ["left_command"], []) %>,
+          "to": <%= to([["tab", ["left_option"]]]) %>,
+          "conditions": [
+              <%= frontmost_application_if(["remote_desktop"]) %>
+          ]
+        }
+      ]
+    }
+  ]
+}
