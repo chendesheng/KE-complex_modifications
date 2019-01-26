@@ -89,6 +89,14 @@
           "conditions": [
               <%= frontmost_application_if(["remote_desktop"]) %>
           ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("tab", ["left_command", "left_shift"], []) %>,
+          "to": <%= to([["tab", ["left_option", "left_shift"]]]) %>,
+          "conditions": [
+              <%= frontmost_application_if(["remote_desktop"]) %>
+          ]
         }
       ]
     }
