@@ -76,6 +76,14 @@
         },
         {
           "type": "basic",
+          "from": <%= from("t", ["left_command"], []) %>,
+          "to": <%= to([["t", ["left_control"]]]) %>,
+          "conditions": [
+              <%= frontmost_application_if(["remote_desktop"]) %>
+          ]
+        },
+        {
+          "type": "basic",
           "from": <%= from("w", ["left_command"], []) %>,
           "to": <%= to([["w", ["left_control"]]]) %>,
           "conditions": [
