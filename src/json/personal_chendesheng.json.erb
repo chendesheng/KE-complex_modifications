@@ -8,6 +8,9 @@
           "from": <%= from("right_shift", [], ["any"]) %>,
           "to": <%= to([["right_shift"]]) %>,
           "to_if_alone": <%= to([["left_shift", ["left_option"]]]) %>,
+          "conditions": [
+              <%= frontmost_application_if(["remote_desktop"]) %>
+          ],
           "type": "basic"
         },
         {
@@ -114,6 +117,17 @@
         {
           "from": <%= from("print_screen", [], []) %>,
           "to": <%= to_app("screenshot.app && pbresize") %>,
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "map right_shift to select next input source (need put this rule after the remote desktop rules)",
+      "manipulators": [
+        {
+          "from": <%= from("right_shift", [], ["any"]) %>,
+          "to": <%= to([["right_shift"]]) %>,
+          "to_if_alone": <%= to([["spacebar", ["left_command", "left_shift"]]]) %>,
           "type": "basic"
         }
       ]
