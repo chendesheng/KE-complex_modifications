@@ -118,6 +118,11 @@
           "from": <%= from("print_screen", [], []) %>,
           "to": <%= to_app("screenshot.app && pbresize") %>,
           "type": "basic"
+        },
+        {
+          "from": <%= from("4", ["left_shift", "left_command"], []) %>,
+          "to": <%= to_app("screenshot.app && pbresize") %>,
+          "type": "basic"
         }
       ]
     },
