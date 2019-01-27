@@ -107,6 +107,16 @@
           ]
         }
       ]
+    },
+    {
+      "description": "Launch shcreenshot.app and downsize the image in clipboard with pbresize (https://github.com/chongkim/pbresize)",
+      "manipulators": [
+        {
+          "from": <%= from("print_screen", [], []) %>,
+          "to": <%= to_app("screenshot.app && pbresize") %>,
+          "type": "basic"
+        }
+      ]
     }
   ]
 }
