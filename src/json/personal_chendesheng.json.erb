@@ -71,14 +71,6 @@
         },
         {
           "type": "basic",
-          "from": <%= from("n", ["left_command"], []) %>,
-          "to": <%= to([["n", ["left_control"]]]) %>,
-          "conditions": [
-              <%= frontmost_application_if(["remote_desktop"]) %>
-          ]
-        },
-        {
-          "type": "basic",
           "from": <%= from("t", ["left_command"], []) %>,
           "to": <%= to([["t", ["left_control"]]]) %>,
           "conditions": [
@@ -108,6 +100,27 @@
           "conditions": [
               <%= frontmost_application_if(["remote_desktop"]) %>
           ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("f", ["left_command", "left_shift"], []) %>,
+          "to": <%= to([["f", ["left_control", "left_shift"]]]) %>,
+          "conditions": [
+              <%= frontmost_application_if(["remote_desktop"]) %>
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Microsoft Remote Desktop and Visual Studio",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": <%= from("p", ["left_command"], []) %>,
+          "to": <%= to([["comma", ["left_control"]]]) %>,
+          "conditions": [
+              <%= frontmost_application_if(["remote_desktop"]) %>
+          ]
         }
       ]
     },
@@ -121,7 +134,7 @@
         },
         {
           "from": <%= from("4", ["left_shift", "left_command"], []) %>,
-          "to": <%= to_app("screenshot.app && pbresize") %>,
+          "to": <%= to_app("screenshot.app") %>,
           "type": "basic"
         }
       ]
@@ -133,6 +146,21 @@
           "from": <%= from("right_shift", [], ["any"]) %>,
           "to": <%= to([["right_shift"]]) %>,
           "to_if_alone": <%= to([["spacebar", ["left_command", "left_shift"]]]) %>,
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "This is for typing password by touchid, you need prepair 3 things: 1) install sudo-touchid so that you can use touch id grant sudo 2) create a file has the same permission setting as '/etc/sudoers' which require sudo to read so that it is safe to put clear password in it 3) An apple script to read from the file and send as keystrokes (The script itself could be sudo protected as well)",
+      "manipulators": [
+        {
+          "from": <%= from("c", ["fn"], []) %>,
+          "to": <%= to_shell_command(["sudo -k osascript -l JavaScript /Users/chendesheng/.fill.js comm100randd return"]) %>,
+          "type": "basic"
+        },
+        {
+          "from": <%= from("m", ["fn"], []) %>,
+          "to": <%= to_shell_command(["sudo -k osascript -l JavaScript /Users/chendesheng/.fill.js me"]) %>,
           "type": "basic"
         }
       ]
