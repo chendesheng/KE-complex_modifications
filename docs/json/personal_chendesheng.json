@@ -591,6 +591,22 @@
               ]
             }
           ]
+        },
+        {
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -l JavaScript /Users/chendesheng/.fill.js clipboard"
+            }
+          ],
+          "type": "basic"
         }
       ]
     },
@@ -732,6 +748,22 @@
           "to": [
             {
               "shell_command": "sudo -k osascript -l JavaScript /Users/chendesheng/.fill.js me"
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "sudo -k osascript -l JavaScript /Users/chendesheng/.fill.js visa"
             }
           ],
           "type": "basic"

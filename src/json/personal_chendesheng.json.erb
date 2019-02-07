@@ -103,11 +103,32 @@
         },
         {
           "type": "basic",
+          "from": <%= from("n", ["left_control"], []) %>,
+          "to": <%= to([["down_arrow"]]) %>,
+          "conditions": [
+              <%= frontmost_application_if(["remote_desktop"]) %>
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("p", ["left_control"], []) %>,
+          "to": <%= to([["up_arrow"]]) %>,
+          "conditions": [
+              <%= frontmost_application_if(["remote_desktop"]) %>
+          ]
+        },
+        {
+          "type": "basic",
           "from": <%= from("f", ["left_command", "left_shift"], []) %>,
           "to": <%= to([["f", ["left_control", "left_shift"]]]) %>,
           "conditions": [
               <%= frontmost_application_if(["remote_desktop"]) %>
           ]
+        },
+        {
+          "from": <%= from("v", ["fn"], []) %>,
+          "to": <%= to_shell_command(["osascript -l JavaScript /Users/chendesheng/.fill.js clipboard"]) %>,
+          "type": "basic"
         }
       ]
     },
@@ -161,6 +182,11 @@
         {
           "from": <%= from("m", ["fn"], []) %>,
           "to": <%= to_shell_command(["sudo -k osascript -l JavaScript /Users/chendesheng/.fill.js me"]) %>,
+          "type": "basic"
+        },
+        {
+          "from": <%= from("d", ["fn"], []) %>,
+          "to": <%= to_shell_command(["sudo -k osascript -l JavaScript /Users/chendesheng/.fill.js visa"]) %>,
           "type": "basic"
         }
       ]
