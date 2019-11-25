@@ -2,6 +2,16 @@
   "title": "Personal rules (@chendesheng)",
   "rules": [
     {
+      "description": "Click help menu",
+      "manipulators": [
+        {
+          "from": <%= from("spacebar", ["left_command"], []) %>,
+          "to": <%= to_shell_command(["osascript -l AppleScript /Users/chendesheng/clickHelpMenu.scpt"]) %>,
+          "type": "basic"
+        }
+      ]
+    },
+    {
       "description": "Microsoft Remote Desktop",
       "manipulators": [
         {
@@ -142,6 +152,22 @@
           "conditions": [
               <%= frontmost_application_if(["remote_desktop"]) %>
           ]
+	},
+	{
+          "type": "basic",
+          "from": <%= from("open_bracket", ["left_command", "left_shift"], []) %>,
+          "to": <%= to([["open_bracket", ["left_control", "left_shift"]]]) %>,
+          "conditions": [
+              <%= frontmost_application_if(["remote_desktop"]) %>
+          ]
+        },
+	{
+          "type": "basic",
+          "from": <%= from("close_bracket", ["left_command", "left_shift"], []) %>,
+          "to": <%= to([["close_bracket", ["left_control", "left_shift"]]]) %>,
+          "conditions": [
+              <%= frontmost_application_if(["remote_desktop"]) %>
+          ]
         }
       ]
     },
@@ -187,6 +213,16 @@
         {
           "from": <%= from("d", ["fn"], []) %>,
           "to": <%= to_shell_command(["sudo -k osascript -l JavaScript /Users/chendesheng/.fill.js visa"]) %>,
+          "type": "basic"
+        },
+        {
+          "from": <%= from("u", ["fn"], []) %>,
+          "to": <%= to_shell_command(["osascript -l JavaScript /Users/chendesheng/.fill.js usual"]) %>,
+          "type": "basic"
+        },
+        {
+          "from": <%= from("1", ["fn"], []) %>,
+          "to": <%= to_shell_command(["osascript -l JavaScript /Users/chendesheng/.fill.js 61"]) %>,
           "type": "basic"
         }
       ]
