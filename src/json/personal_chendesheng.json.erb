@@ -136,6 +136,22 @@
           ]
         },
         {
+          "type": "basic",
+          "from": <%= from("j", ["left_command"], []) %>,
+          "to": <%= to([["grave_accent_and_tilde", ["left_control"]]]) %>,
+          "conditions": [
+              <%= frontmost_application_if(["remote_desktop"]) %>
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("period", ["left_command"], []) %>,
+          "to": <%= to([["period", ["left_control"]]]) %>,
+          "conditions": [
+              <%= frontmost_application_if(["remote_desktop"]) %>
+          ]
+        },
+        {
           "from": <%= from("v", ["fn"], []) %>,
           "to": <%= to_shell_command(["osascript -l JavaScript /Users/chendesheng/.fill.js clipboard"]) %>,
           "type": "basic"
@@ -150,21 +166,37 @@
           "from": <%= from("p", ["left_command"], []) %>,
           "to": <%= to([["comma", ["left_control"]]]) %>,
           "conditions": [
-              <%= frontmost_application_if(["remote_desktop"]) %>
+            <%= frontmost_application_if(["remote_desktop"]) %>
           ]
-	},
-	{
+        },
+        {
+          "type": "basic",
+          "from": <%= from("w", ["left_command"], []) %>,
+          "to": <%= to([["w", ["left_control"]]]) %>,
+          "conditions": [
+            <%= frontmost_application_if(["remote_desktop"]) %>
+          ]
+        },
+        {
           "type": "basic",
           "from": <%= from("open_bracket", ["left_command", "left_shift"], []) %>,
           "to": <%= to([["open_bracket", ["left_control", "left_shift"]]]) %>,
           "conditions": [
-              <%= frontmost_application_if(["remote_desktop"]) %>
+            <%= frontmost_application_if(["remote_desktop"]) %>
           ]
         },
-	{
+        {
           "type": "basic",
           "from": <%= from("close_bracket", ["left_command", "left_shift"], []) %>,
           "to": <%= to([["close_bracket", ["left_control", "left_shift"]]]) %>,
+          "conditions": [
+              <%= frontmost_application_if(["remote_desktop"]) %>
+          ]
+        },
+        {
+          "type": "basic",
+          "from": <%= from("p", ["left_command", "left_shift"], []) %>,
+          "to": <%= to([["p", ["left_control", "left_shift"]]]) %>,
           "conditions": [
               <%= frontmost_application_if(["remote_desktop"]) %>
           ]
@@ -216,8 +248,13 @@
           "type": "basic"
         },
         {
-          "from": <%= from("u", ["fn"], []) %>,
-          "to": <%= to_shell_command(["osascript -l JavaScript /Users/chendesheng/.fill.js usual"]) %>,
+          "from": <%= from("6", ["fn"], []) %>,
+          "to": <%= to_shell_command(["osascript -l JavaScript /Users/chendesheng/.fill.js Aa6-0"]) %>,
+          "type": "basic"
+        },
+        {
+          "from": <%= from("8", ["fn"], []) %>,
+          "to": <%= to_shell_command(["osascript -l JavaScript /Users/chendesheng/.fill.js Aa8-0"]) %>,
           "type": "basic"
         },
         {
