@@ -1,6 +1,12 @@
+# frozen_string_literal: true
+
 # Helper methods for generating json
 module Karabiner
   BUNDLE_IDENTIFERS = {
+    :alfred => [
+      '^com\\.runningwithcrayons\\.Alfred$',
+    ],
+
     :activity_monitor => [
       '^com\.apple\.ActivityMonitor$',
     ],
@@ -11,6 +17,8 @@ module Karabiner
 
     :browser => [
       '^org\.mozilla\.firefox$',
+      '^org\.mozilla\.nightly$',
+      '^com\.microsoft\.Edge', # prefix
       '^com\.google\.Chrome$',
       '^com\.apple\.Safari$',
     ],
@@ -35,7 +43,7 @@ module Karabiner
     ],
 
     :jetbrains_ide => [
-      '^com\.jetbrains\.' # prefix
+      '^com\.jetbrains\.', # prefix
     ],
 
     :loginwindow => [
@@ -49,16 +57,23 @@ module Karabiner
     ],
 
     :remote_desktop => [
+      # com.microsoft.rdc
+      # com.microsoft.rdc.mac
+      # com.microsoft.rdc.macos
+      # com.microsoft.rdc.osx.beta
       '^com\.microsoft\.rdc$',
-      '^com\.microsoft\.rdc\.mac$',
-      '^com\.microsoft\.rdc\.macos$',
-      '^com\.microsoft\.rdc\.osx\.beta$',
+      '^com\.microsoft\.rdc\.',
+
       '^net\.sf\.cord$',
       '^com\.thinomenon\.RemoteDesktopConnection$',
       '^com\.itap-mobile\.qmote$',
       '^com\.nulana\.remotixmac$',
+
+      # com.p5sys.jump.mac.viewer
+      # com.p5sys.jump.mac.viewer.web
       '^com\.p5sys\.jump\.mac\.viewer$',
-      '^com\.p5sys\.jump\.mac\.viewer\.web$',
+      '^com\.p5sys\.jump\.mac\.viewer\.',
+
       '^com\.teamviewer\.TeamViewer$',
       '^com\.vmware\.horizon$',
       '^com\.2X\.Client\.Mac$',
@@ -92,7 +107,7 @@ module Karabiner
     ],
 
     :sublime_text => [
-      '^com\.sublimetext\.' # prefix
+      '^com\.sublimetext\.', # prefix
     ],
 
     :visual_studio_code => [
@@ -119,6 +134,7 @@ module Karabiner
   }.freeze
 
   APP_ALIASES = {
+    'alfred' => BUNDLE_IDENTIFERS[:alfred],
     'activity_monitor' => BUNDLE_IDENTIFERS[:activity_monitor],
     'adium' => BUNDLE_IDENTIFERS[:adium],
     'browser' => BUNDLE_IDENTIFERS[:browser],
@@ -146,7 +162,7 @@ module Karabiner
     'xcode' => BUNDLE_IDENTIFERS[:xcode],
   }.freeze
 
-  def self.from_modifiers(mandatory_modifiers, optional_modifiers)
+  def self.from_modifiers(mandatory_modifiers = nil, optional_modifiers = ['any'])
     modifiers = {}
     modifiers['mandatory'] = mandatory_modifiers unless mandatory_modifiers.nil?
     modifiers['optional'] = optional_modifiers unless optional_modifiers.nil?
@@ -162,8 +178,7 @@ module Karabiner
     }
   end
 
-  def self.frontmost_application(type, app_aliases)
-    bundle_identifiers = []
+  def self.frontmost_application(type, app_aliases = [], bundle_identifiers: [])
     app_aliases.each do |app_alias|
       if Karabiner::APP_ALIASES[app_alias].nil?
         $stderr << "unknown app_alias: #{app_alias}\n"
@@ -178,12 +193,12 @@ module Karabiner
     }
   end
 
-  def self.frontmost_application_if(app_aliases)
-    frontmost_application('frontmost_application_if', app_aliases)
+  def self.frontmost_application_if(app_aliases = [], bundle_identifiers: [])
+    frontmost_application('frontmost_application_if', app_aliases, bundle_identifiers: bundle_identifiers)
   end
 
-  def self.frontmost_application_unless(app_aliases)
-    frontmost_application('frontmost_application_unless', app_aliases)
+  def self.frontmost_application_unless(app_aliases = [], bundle_identifiers: [])
+    frontmost_application('frontmost_application_unless', app_aliases, bundle_identifiers: bundle_identifiers)
   end
 
   def self.keyboard_type_if(keyboard_types)
