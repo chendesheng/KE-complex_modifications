@@ -153,7 +153,7 @@
         },
         {
           "from": <%= from("v", ["fn"], []) %>,
-          "to": <%= to_shell_command(["osascript -l JavaScript /Users/chendesheng/.fill.js clipboard"]) %>,
+          "to": <%= to_shell_command(["osascript -l AppleScript /Users/chendesheng/typepaste.scpt"]) %>,
           "type": "basic"
         }
       ]
@@ -234,17 +234,17 @@
       "manipulators": [
         {
           "from": <%= from("c", ["fn"], []) %>,
-          "to": <%= to_shell_command(["sudo -k osascript -l JavaScript /Users/chendesheng/.fill.js comm100randd return"]) %>,
+          "to": <%= to_shell_command(["osascript -l AppleScript /Users/chendesheng/comm100randd.scpt"]) %>,
           "type": "basic"
         },
         {
           "from": <%= from("m", ["fn"], []) %>,
-          "to": <%= to_shell_command(["sudo -k osascript -l JavaScript /Users/chendesheng/.fill.js me"]) %>,
+          "to": <%= to_shell_command(["osascript -l AppleScript /Users/chendesheng/me.scpt"]) %>,
           "type": "basic"
         },
         {
           "from": <%= from("d", ["fn"], []) %>,
-          "to": <%= to_shell_command(["sudo -k osascript -l JavaScript /Users/chendesheng/.fill.js visa"]) %>,
+          "to": <%= to_shell_command(["osascript -l AppleScript /Users/chendesheng/visa.scpt"]) %>,
           "type": "basic"
         },
         {
