@@ -948,7 +948,7 @@
           },
           "to": [
             {
-              "shell_command": "osascript -l AppleScript /Users/chendesheng/comm100randd.scpt"
+              "shell_command": "osascript -l AppleScript ~/comm100randd.scpt"
             }
           ],
           "type": "basic"
@@ -964,7 +964,7 @@
           },
           "to": [
             {
-              "shell_command": "osascript -l AppleScript /Users/chendesheng/me.scpt"
+              "shell_command": "osascript -l AppleScript ~/me.scpt"
             }
           ],
           "type": "basic"
@@ -980,7 +980,7 @@
           },
           "to": [
             {
-              "shell_command": "osascript -l AppleScript /Users/chendesheng/visa.scpt"
+              "shell_command": "osascript -l AppleScript ~/visa.scpt"
             }
           ],
           "type": "basic"
@@ -996,7 +996,7 @@
           },
           "to": [
             {
-              "shell_command": "osascript -l JavaScript /Users/chendesheng/.fill.js Aa6-0"
+              "shell_command": "osascript -l JavaScript ~/.fill.js Aa6-0"
             }
           ],
           "type": "basic"
@@ -1012,7 +1012,7 @@
           },
           "to": [
             {
-              "shell_command": "osascript -l JavaScript /Users/chendesheng/.fill.js Aa8-0"
+              "shell_command": "osascript -l JavaScript ~/.fill.js Aa8-0"
             }
           ],
           "type": "basic"
@@ -1028,7 +1028,7 @@
           },
           "to": [
             {
-              "shell_command": "osascript -l JavaScript /Users/chendesheng/.fill.js 61"
+              "shell_command": "osascript -l JavaScript ~/.fill.js 61"
             }
           ],
           "type": "basic"
