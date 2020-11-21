@@ -668,7 +668,7 @@
           },
           "to": [
             {
-              "shell_command": "osascript -l AppleScript /Users/chendesheng/typepaste.scpt"
+              "shell_command": "osascript -l AppleScript ~/typepaste.scpt"
             }
           ],
           "type": "basic"
@@ -965,70 +965,6 @@
           "to": [
             {
               "shell_command": "osascript -l AppleScript ~/me.scpt"
-            }
-          ],
-          "type": "basic"
-        },
-        {
-          "from": {
-            "key_code": "d",
-            "modifiers": {
-              "mandatory": [
-                "fn"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "osascript -l AppleScript ~/visa.scpt"
-            }
-          ],
-          "type": "basic"
-        },
-        {
-          "from": {
-            "key_code": "6",
-            "modifiers": {
-              "mandatory": [
-                "fn"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "osascript -l JavaScript ~/.fill.js Aa6-0"
-            }
-          ],
-          "type": "basic"
-        },
-        {
-          "from": {
-            "key_code": "8",
-            "modifiers": {
-              "mandatory": [
-                "fn"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "osascript -l JavaScript ~/.fill.js Aa8-0"
-            }
-          ],
-          "type": "basic"
-        },
-        {
-          "from": {
-            "key_code": "1",
-            "modifiers": {
-              "mandatory": [
-                "fn"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "osascript -l JavaScript ~/.fill.js 61"
             }
           ],
           "type": "basic"
