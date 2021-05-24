@@ -2,16 +2,6 @@
   "title": "Personal rules (@chendesheng)",
   "rules": [
     {
-      "description": "Click help menu",
-      "manipulators": [
-        {
-          "from": <%= from("spacebar", ["left_command"], []) %>,
-          "to": <%= to_shell_command(["osascript -l AppleScript /Users/chendesheng/clickHelpMenu.scpt"]) %>,
-          "type": "basic"
-        }
-      ]
-    },
-    {
       "description": "Microsoft Remote Desktop",
       "manipulators": [
         {
@@ -230,16 +220,52 @@
       ]
     },
     {
-      "description": "This is for typing password by touchid, you need prepair 3 things: 1) install sudo-touchid so that you can use touch id grant sudo 2) create a file has the same permission setting as '/etc/sudoers' which require sudo to read so that it is safe to put clear password in it 3) An apple script to read from the file and send as keystrokes (The script itself could be sudo protected as well)",
+      "description": "Generate keystrokes by applescript",
       "manipulators": [
         {
-          "from": <%= from("c", ["fn"], []) %>,
+          "from": <%= from("o", ["fn"], []) %>,
           "to": <%= to_shell_command(["osascript -l AppleScript ~/comm100randd.scpt"]) %>,
           "type": "basic"
         },
         {
           "from": <%= from("m", ["fn"], []) %>,
           "to": <%= to_shell_command(["osascript -l AppleScript ~/me.scpt"]) %>,
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "vi. Be able to map command + period",
+      "manipulators": [
+        {
+          "from": <%= from("period", ["left_command"], []) %>,
+          "to": <%= to([["i", ["left_command"]]]) %>,
+          "conditions": [
+              <%= frontmost_application_if(["vi"]) %>
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "vi. map Ctrl+[ to exit insert mode and save",
+      "manipulators": [
+        {
+          "from": <%= from("open_bracket", ["left_control"], []) %>,
+          "to": <%= to([["s", ["left_command"]]]) %>,
+          "conditions": [
+              <%= frontmost_application_if(["vi"]) %>
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "map fn+c to cmd+f1",
+      "manipulators": [
+        {
+          "from": <%= from("c", ["fn"], []) %>,
+          "to": <%= to([["f1", ["left_command"]]]) %>,
           "type": "basic"
         }
       ]

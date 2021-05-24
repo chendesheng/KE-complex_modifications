@@ -2,27 +2,6 @@
   "title": "Personal rules (@chendesheng)",
   "rules": [
     {
-      "description": "Click help menu",
-      "manipulators": [
-        {
-          "from": {
-            "key_code": "spacebar",
-            "modifiers": {
-              "mandatory": [
-                "left_command"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "osascript -l AppleScript /Users/chendesheng/clickHelpMenu.scpt"
-            }
-          ],
-          "type": "basic"
-        }
-      ]
-    },
-    {
       "description": "Microsoft Remote Desktop",
       "manipulators": [
         {
@@ -935,11 +914,11 @@
       ]
     },
     {
-      "description": "This is for typing password by touchid, you need prepair 3 things: 1) install sudo-touchid so that you can use touch id grant sudo 2) create a file has the same permission setting as '/etc/sudoers' which require sudo to read so that it is safe to put clear password in it 3) An apple script to read from the file and send as keystrokes (The script itself could be sudo protected as well)",
+      "description": "Generate keystrokes by applescript",
       "manipulators": [
         {
           "from": {
-            "key_code": "c",
+            "key_code": "o",
             "modifiers": {
               "mandatory": [
                 "fn"
@@ -965,6 +944,96 @@
           "to": [
             {
               "shell_command": "osascript -l AppleScript ~/me.scpt"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "vi. Be able to map command + period",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "mandatory": [
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "i",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^org\\.vim\\.",
+                "^com\\.qvacua\\.VimR$"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "vi. map Ctrl+[ to exit insert mode and save",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": [
+                "left_control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^org\\.vim\\.",
+                "^com\\.qvacua\\.VimR$"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "map fn+c to cmd+f1",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f1",
+              "modifiers": [
+                "left_command"
+              ]
             }
           ],
           "type": "basic"
