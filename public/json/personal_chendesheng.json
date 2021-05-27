@@ -1017,7 +1017,7 @@
       ]
     },
     {
-      "description": "map fn+c to cmd+f1",
+      "description": "Grab screen and convert to text",
       "manipulators": [
         {
           "from": {
@@ -1030,10 +1030,7 @@
           },
           "to": [
             {
-              "key_code": "f1",
-              "modifiers": [
-                "left_command"
-              ]
+              "shell_command": "/usr/local/bin/ocr"
             }
           ],
           "type": "basic"

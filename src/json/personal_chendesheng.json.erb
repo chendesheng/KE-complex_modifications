@@ -261,11 +261,11 @@
       ]
     },
     {
-      "description": "map fn+c to cmd+f1",
+      "description": "Grab screen and convert to text",
       "manipulators": [
         {
           "from": <%= from("c", ["fn"], []) %>,
-          "to": <%= to([["f1", ["left_command"]]]) %>,
+          "to": <%= to_shell_command(["/usr/local/bin/ocr"]) %>,
           "type": "basic"
         }
       ]
