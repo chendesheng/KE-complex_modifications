@@ -647,7 +647,7 @@
           },
           "to": [
             {
-              "shell_command": "osascript -l AppleScript ~/typepaste.scpt"
+              "shell_command": "open /Applications/PasteKeys.app"
             }
           ],
           "type": "basic"
@@ -927,7 +927,7 @@
           },
           "to": [
             {
-              "shell_command": "osascript -l AppleScript ~/comm100randd.scpt"
+              "shell_command": "osascript -l AppleScript ~/KE-complex_modifications/applescripts/comm100randd.scpt"
             }
           ],
           "type": "basic"
@@ -1030,7 +1030,51 @@
           },
           "to": [
             {
-              "shell_command": "/usr/local/bin/ocr"
+              "shell_command": "shortcuts run ocr"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Syncer send clipboard",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "left_control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "shortcuts run SendClipboard"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Syncer send screenshot",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "left_control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "shortcuts run ScreenshotCopy"
             }
           ],
           "type": "basic"

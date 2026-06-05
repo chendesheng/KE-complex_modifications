@@ -143,7 +143,7 @@
         },
         {
           "from": <%= from("v", ["fn"], []) %>,
-          "to": <%= to_shell_command(["osascript -l AppleScript ~/typepaste.scpt"]) %>,
+          "to": <%= to_shell_command(["open /Applications/PasteKeys.app"]) %>,
           "type": "basic"
         }
       ]
@@ -224,7 +224,7 @@
       "manipulators": [
         {
           "from": <%= from("o", ["fn"], []) %>,
-          "to": <%= to_shell_command(["osascript -l AppleScript ~/comm100randd.scpt"]) %>,
+          "to": <%= to_shell_command(["osascript -l AppleScript ~/KE-complex_modifications/applescripts/comm100randd.scpt"]) %>,
           "type": "basic"
         },
         {
@@ -265,7 +265,27 @@
       "manipulators": [
         {
           "from": <%= from("c", ["fn"], []) %>,
-          "to": <%= to_shell_command(["/usr/local/bin/ocr"]) %>,
+          "to": <%= to_shell_command(["shortcuts run ocr"]) %>,
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Syncer send clipboard",
+      "manipulators": [
+        {
+          "from": <%= from("v", ["left_command", "left_control"], []) %>,
+          "to": <%= to_shell_command(["shortcuts run SendClipboard"]) %>,
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Syncer send screenshot",
+      "manipulators": [
+        {
+          "from": <%= from("4", ["left_command", "left_control"], []) %>,
+          "to": <%= to_shell_command(["shortcuts run ScreenshotCopy"]) %>,
           "type": "basic"
         }
       ]
